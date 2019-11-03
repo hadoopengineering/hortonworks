@@ -1,0 +1,4 @@
+pvcreate /dev/xvda3
+vgdisplay
+vgextend VolGroup  /dev/xvda3
+lvextend -L+41G /dev/mapper/VolGroup-lv_root

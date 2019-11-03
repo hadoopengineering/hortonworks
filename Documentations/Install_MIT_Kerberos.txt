@@ -1,0 +1,16 @@
+yum install krb5-server krb5-libs krb5-workstation
+/etc/krb5.conf
+kdb5_util create -s
+
+systemctl start krb5kdc
+systemctl start kadmin
+
+systemctl enable krb5kdc
+systemctl enable kadmin
+
+kadmin.local -q "addprinc admin/admin"
+
+vi /var/kerberos/krb5kdc/kadm5.acl
+
+systemctl restart kadmin
+

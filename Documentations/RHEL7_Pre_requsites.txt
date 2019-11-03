@@ -1,0 +1,35 @@
+CentOS / RHEL7
+
+1.Change the run level to multi user text mode
+
+systemctl get-default
+systemctl set-default multi-user.target
+
+2.Change the hostname 
+hostnamectl set-hostname <hostname>
+hostnamectl set-hostname master1.hadoop.com
+3.Disable firewall
+
+systemctl disable firewalld
+systemctl status firewalld
+
+4.Change VM Swappiness to 10
+echo "vm.swappiness = 10" >> /etc/sysctl.conf
+
+5.Disable SE Linux
+/etc/selinux/config and change from enhanced to disabled
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
+
+6.Install and start NTPyum
+yum  -y  install ntp
+systemctl enable ntpd
+systemctl start ntpd
+
+7.Disable THP add these lines to /etc/rc.local 
+	 echo "echo \"never\" >  /sys/kernel/mm/transparent_hugepage/enabled " >> /etc/rc.local
+	 echo "echo \"never\" > /sys/kernel/mm/transparent_hugepage/defrag" >>  /etc/rc.local
+ 
+8.Update /etc/hosts file
+
+
+ 

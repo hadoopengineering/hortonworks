@@ -1,0 +1,5 @@
+pvcreate /dev/xvda3
+vgextend VolGroup /dev/xvda3
+lvextend -L+41G /dev/VolGroup/lv_root
+resize2fs  /dev/VolGroup/lv_root
+

@@ -1,0 +1,13 @@
+
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh  --zookeeper   node2.hadoop.com:2181,node1.hadoop.com:2181,master.hadoop.com:2181 --create --replication-factor 1 --partitions 1 --topic  sijeeshtopic
+
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh  --zookeeper node2.hadoop.com:2181,node1.hadoop.com:2181,master.hadoop.com:2181  –list
+
+
+/usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh  --topic sijeeshtopic  --broker-list node2.hadoop.com:6667
+
+
+
+
+
+/usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh   --zookeeper node2.hadoop.com:2181,node1.hadoop.com:2181,master.hadoop.com:2181  --topic sijeeshtopic

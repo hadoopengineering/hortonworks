@@ -1,0 +1,15 @@
+Ambari LDAP Integration
+
+ambari-server setup-ldap
+
+Primary URL : 192.168.232.129:389
+
+UserOnjectClass : inetOrgPerson posixAccount
+Username attribute : uid
+Group Object Class : posixGroup
+Group name attribute: cn
+Group member attribute : gidNumber
+Distinguished name attribute : dn
+Manager dn : cn=Manager,dc=hadoop,dc=com
+
+(|(memberOf=cn=admins,ou=Group,dc=hadoop,dc=com)(memberOf=cn=hadoopadmins,ou=Group,dc=hadoop,dc=com))
